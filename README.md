@@ -1,7 +1,7 @@
 <p align="center"><img src="docs/banner.svg" alt="Missed Call Follow-Up" width="100%"></p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/status-demo%20built-b9472a?labelColor=f6f3ec" alt="Status: demo built">
+  <img src="https://img.shields.io/badge/status-live-b9472a?labelColor=f6f3ec" alt="Status: live">
   <img src="https://img.shields.io/badge/Next.js-16-15212c?labelColor=f6f3ec" alt="Next.js 16">
   <img src="https://img.shields.io/badge/backend-none-b9472a?labelColor=f6f3ec" alt="No backend">
   <img src="https://img.shields.io/badge/tests-Vitest-2c7355?labelColor=f6f3ec" alt="Tests: Vitest">
@@ -9,16 +9,23 @@
 
 **Every missed call gets an answer: a landing page and a one-click demo of a missed-call follow-up for trade businesses.**
 
-Live site: after the first deploy (#1) · press Try the demo
+[Live site](https://missed-call-follow-up.vercel.app) · press Try the demo
 
 ## Status
 
 | Row | |
 |---|---|
-| Phase | Demo built, deploy next |
-| Shipped | Landing page and one-click demo (local) |
-| Next | Deploy to Vercel and showcase pictures (#1) |
+| Phase | Live |
+| Shipped | Landing page and one-click demo on Vercel, showcase pictures |
+| Next | Nothing open. New work goes in an issue. |
 | Updated | 2026-11-10 |
+
+## Screenshots
+
+<p align="center">
+  <img src="showcase/lead-in-desktop-light.png" alt="The demo: the caller's phone and the owner's pipeline" height="420">
+  <img src="showcase/follow-up-phone-light.png" alt="The follow-up text on a phone" height="420">
+</p>
 
 ## What it does
 
