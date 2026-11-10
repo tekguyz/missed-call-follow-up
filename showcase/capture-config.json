@@ -1,0 +1,143 @@
+{
+  "name": "missed-call-follow-up",
+  "hideBanner": [
+    "Leave the demo"
+  ],
+  "hideText": [
+    "Built by TEKGUYZ"
+  ],
+  "themes": [
+    "light"
+  ],
+  "enter": [
+    {
+      "goto": "https://missed-call-follow-up.vercel.app/"
+    }
+  ],
+  "screens": [
+    {
+      "name": "landing",
+      "device": "desktop",
+      "steps": []
+    },
+    {
+      "name": "follow-up",
+      "device": "desktop",
+      "steps": [
+        {
+          "goto": "https://missed-call-follow-up.vercel.app/demo"
+        },
+        {
+          "click": "Call Keywind Roofing"
+        },
+        {
+          "wait": 6500
+        },
+        {
+          "click": "Leak after the storm"
+        },
+        {
+          "wait": 1500
+        },
+        {
+          "click": "Coral Springs"
+        },
+        {
+          "wait": 1500
+        }
+      ]
+    },
+    {
+      "name": "lead-in",
+      "device": "desktop",
+      "steps": [
+        {
+          "click": "Today, it's urgent"
+        },
+        {
+          "wait": 2500
+        }
+      ]
+    },
+    {
+      "name": "landing",
+      "device": "phone",
+      "steps": []
+    },
+    {
+      "name": "follow-up",
+      "device": "phone",
+      "steps": [
+        {
+          "goto": "https://missed-call-follow-up.vercel.app/demo"
+        },
+        {
+          "click": "Call Keywind Roofing"
+        },
+        {
+          "wait": 6500
+        },
+        {
+          "click": "Leak after the storm"
+        },
+        {
+          "wait": 1500
+        },
+        {
+          "click": "Coral Springs"
+        },
+        {
+          "wait": 1500
+        },
+        {
+          "scrollTo": "Caller's phone",
+          "offset": 12
+        }
+      ]
+    },
+    {
+      "name": "follow-up",
+      "device": "feed",
+      "steps": [
+        {
+          "goto": "https://missed-call-follow-up.vercel.app/demo"
+        },
+        {
+          "click": "Call Keywind Roofing"
+        },
+        {
+          "wait": 6500
+        },
+        {
+          "click": "Leak after the storm"
+        },
+        {
+          "wait": 1500
+        },
+        {
+          "click": "Coral Springs"
+        },
+        {
+          "wait": 1500
+        }
+      ]
+    },
+    {
+      "name": "landing",
+      "device": "feed",
+      "steps": [
+        {
+          "goto": "https://missed-call-follow-up.vercel.app/"
+        }
+      ]
+    }
+  ],
+  "video": {
+    "device": "desktop",
+    "seconds": 4.5,
+    "steps": []
+  },
+  "reel": {
+    "steps": []
+  }
+}

@@ -33,7 +33,7 @@ type Props = {
 export function Phone(props: Props) {
   return (
     <div className="mx-auto w-full max-w-[22rem] rounded-[2.75rem] bg-night p-2.5 shadow-[0_24px_60px_-20px_rgb(21_33_44/0.45)]">
-      <div className="flex h-[38rem] flex-col overflow-hidden rounded-[2.25rem] bg-night text-on-night">
+      <div className="flex h-[min(38rem,calc(100dvh-2.5rem))] min-h-[30rem] flex-col overflow-hidden rounded-[2.25rem] bg-night text-on-night">
         <div className="flex items-center justify-between px-6 pt-3 pb-1 text-micro text-on-night-muted" aria-hidden>
           <span className="font-semibold">7:42</span>
           <span className="h-5 w-20 rounded-full bg-night-raised" />
