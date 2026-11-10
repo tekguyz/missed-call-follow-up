@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+/* Tokens follow DESIGN.md. Change DESIGN.md first. Hex copies of the brand
+   colors live in lib/brand.ts for the drawn images. */
+
+@theme {
+  --color-*: initial;
+  --color-paper: #f6f3ec;
+  --color-surface: #ffffff;
+  --color-sunk: #eeeae0;
+  --color-line: #ddd7cb;
+  --color-ink: #15212c;
+  --color-ink-muted: #56626d;
+  --color-tile: #b9472a;
+  --color-tile-deep: #963a22;
+  --color-tile-soft: #f6e3dc;
+  --color-answered: #2c7355;
+  --color-answered-soft: #e2efe8;
+  --color-night: #15212c;
+  --color-night-raised: #223242;
+  --color-night-line: #34475a;
+  --color-on-night: #f6f3ec;
+  --color-on-night-muted: #a9b6c2;
+  --color-bubble-out: #2c7355;
+  --color-tile-on-night: #e9b4a5;
+  --color-answered-on-night: #9fd3b9;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+
+  --font-display: var(--font-bricolage), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-schibsted), system-ui, sans-serif;
+
+  --text-*: initial;
+  --text-display: 2.75rem;
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.02em;
+  --text-headline: 1.875rem;
+  --text-headline--line-height: 1.12;
+  --text-headline--letter-spacing: -0.01em;
+  --text-title: 1.25rem;
+  --text-title--line-height: 1.3;
+  --text-body: 1rem;
+  --text-body--line-height: 1.55;
+  --text-label: 0.875rem;
+  --text-label--line-height: 1.4;
+  --text-micro: 0.75rem;
+  --text-micro--line-height: 1.35;
+
+  --ease-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --text-display: 4rem;
+  }
+}
+
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-tile);
+  outline-offset: 2px;
+}
+
+/* Motion (DESIGN.md, Motion). Content is visible by default; these only
+   run when the visitor's system allows motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .ring-pulse {
+    animation: ring-pulse 1.1s var(--ease-soft) infinite;
+  }
+  .arrive {
+    animation: arrive 320ms var(--ease-soft) both;
+  }
+  .hairline-draw {
+    transform-origin: left;
+    animation: hairline 600ms var(--ease-soft) both;
+  }
+}
+
+@keyframes ring-pulse {
+  0% { box-shadow: 0 0 0 0 rgb(185 71 42 / 0.55); }
+  100% { box-shadow: 0 0 0 22px rgb(185 71 42 / 0); }
+}
+
+@keyframes arrive {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes hairline {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}

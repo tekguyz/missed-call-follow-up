@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Missed Call Follow-Up · logo options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Schibsted+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --paper:#F6F3EC; --ink:#15212C; --muted:#56626D; --line:#DDD7CB; --tile:#B9472A; --answered:#2C7355; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.5 "Schibsted Grotesk", system-ui, sans-serif; padding:32px 16px 64px; }
+  main { max-width:1100px; margin:0 auto; }
+  h1 { font:700 2rem/1.1 "Bricolage Grotesque", sans-serif; margin:0 0 8px; }
+  h2 { font:700 1.5rem/1.2 "Bricolage Grotesque", sans-serif; margin:0; }
+  p.lead { color:var(--muted); margin:0 0 32px; max-width:60ch; }
+  section { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; margin-bottom:24px; }
+  section.pick { outline:3px solid var(--answered); }
+  .tag { display:inline-block; font-size:.8rem; font-weight:600; padding:2px 10px; border-radius:99px; background:#E4F0EA; color:var(--answered); margin-left:8px; vertical-align:middle; }
+  .grid { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); margin-top:16px; }
+  .cell { border:1px solid var(--line); border-radius:12px; padding:16px; }
+  .cell h3 { margin:0 0 12px; font-size:.8rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+  .logo { display:flex; align-items:center; gap:10px; font:700 1.25rem/1 "Bricolage Grotesque", sans-serif; padding:14px; border-radius:10px; }
+  .logo svg { width:36px; height:36px; flex:none; }
+  .dark { background:var(--ink); color:#fff; }
+  .tabs { background:#DEE1E6; border-radius:10px 10px 0 0; padding:8px 8px 0; display:flex; gap:6px; }
+  .tab { background:#fff; border-radius:8px 8px 0 0; padding:7px 10px; display:flex; align-items:center; gap:7px; font-size:12px; }
+  .tab.off { background:transparent; color:#555; }
+  .sizes { display:flex; align-items:end; gap:16px; margin-top:12px; font-size:12px; color:var(--muted); }
+  .home { display:flex; flex-direction:column; align-items:center; gap:6px; font-size:12px; background:linear-gradient(160deg,#3a5068,#15212C); color:#fff; padding:18px; border-radius:12px; }
+  .home svg { width:64px; height:64px; border-radius:14px; }
+  .card { max-width:280px; border-radius:14px; overflow:hidden; background:#E9E9EB; font-size:13px; }
+  .card .img { aspect-ratio:1200/630; background:var(--paper); padding:12px; display:flex; flex-direction:column; justify-content:space-between; border-bottom:4px solid var(--tile); }
+  .card .img b { font:700 17px/1.05 "Bricolage Grotesque", sans-serif; }
+  .card .img .row { display:flex; align-items:center; gap:6px; font-weight:600; font-size:11px; }
+  .card .img svg { width:16px; height:16px; }
+  .card .meta { padding:8px 10px; }
+  .card .meta small { color:#666; display:block; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Missed Call Follow-Up: logo options</h1>
+  <p class="lead">Three options for the product mark. Each shows the logo on light and dark, the favicon at 16 and 32 px in a browser tab, the home-screen icon and the link preview card. The demo itself plays Keywind Roofing, a made-up roofer; its own small mark is at the bottom. Claude's pick is A, so the build could go on. Say "switch to B" (or C) to change it.</p>
+  <div id="options"></div>
+  <section>
+    <h2>The Sample Business: Keywind Roofing</h2>
+    <div class="grid"><div class="cell"><h3>Logo inside the demo</h3><div class="logo" id="kw"></div></div></div>
+  </section>
+</main>
+<script>
+const phone = 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z';
+const g = (inner) => `<g transform="translate(5 5) scale(0.9166)" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${inner}</g>`;
+const options = [
+  { id: 'A', name: 'Call comes back', note: 'A handset with an arrow coming in, on roof-tile red. Says "the call comes back to you". Same family as a phone app icon, so it reads at 16 px.', pick: true,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#B9472A"/>${g('<path d="M16 2v6h6"/><path d="m22 2-6 6"/><path d="'+phone+'"/>')}</svg>` },
+  { id: 'B', name: 'Return arrow', note: 'Just a curved arrow that loops back, on evening navy. Calmer and more abstract; it says less about phones.',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#15212C"/><path d="M12 10 8 14l4 4" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14h10a6 6 0 0 1 0 12h-3" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><circle cx="24" cy="9" r="3" fill="#E9A23B"/></svg>` },
+  { id: 'C', name: 'Answered bubble', note: 'A text bubble with a check, on answered green. Leans on the text channel, so it fits email and voice less well.',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2C7355"/><path d="M8 9.5h16a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H14l-5 4v-4H8A1.5 1.5 0 0 1 6.5 20v-9A1.5 1.5 0 0 1 8 9.5Z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><path d="m12 15.5 3 3 5-5.5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
+];
+const sized = (svg, px) => svg.replace('<svg ', `<svg width="${px}" height="${px}" `);
+document.getElementById('options').innerHTML = options.map(o => `
+  <section class="${o.pick ? 'pick' : ''}">
+    <h2>${o.id}. ${o.name}${o.pick ? '<span class="tag">Claude\'s pick</span>' : ''}</h2>
+    <p style="color:var(--muted);margin:6px 0 0;max-width:70ch">${o.note}</p>
+    <div class="grid">
+      <div class="cell"><h3>Logo, light and dark</h3>
+        <div class="logo">${o.svg}Missed Call Follow-Up</div>
+        <div class="logo dark">${o.svg}Missed Call Follow-Up</div></div>
+      <div class="cell"><h3>Favicon in a tab</h3>
+        <div class="tabs"><div class="tab">${sized(o.svg,16)} Missed Call Follow-Up</div><div class="tab off">New tab</div></div>
+        <div class="sizes"><span>${sized(o.svg,16)}<br>16 px</span><span>${sized(o.svg,32)}<br>32 px</span></div></div>
+      <div class="cell"><h3>Home-screen icon</h3><div class="home">${o.svg}<span>Follow-Up</span></div></div>
+      <div class="cell"><h3>Link preview in a text</h3>
+        <div class="card"><div class="img"><div class="row">${o.svg}Missed Call Follow-Up</div><b>Every missed call<br>gets an answer.</b></div>
+        <div class="meta"><strong>Missed Call Follow-Up · Every missed call gets an answer.</strong><small>missed-call-follow-up.vercel.app</small></div></div></div>
+    </div>
+  </section>`).join('');
+document.getElementById('kw').innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#15212C"/><path d="M6 17 16 9l10 8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 21.5h9M12 25h11" fill="none" stroke="#F6F3EC" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/></svg>Keywind Roofing`;
+</script>
+</body>
+</html>
