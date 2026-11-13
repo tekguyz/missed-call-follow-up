@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { primaryButton } from "@/components/buttons";
 import { BellIcon, MailIcon, PhoneIncomingIcon, PhoneMissedIcon, PinIcon, TextIcon } from "@/components/icons";
 import { ProductLogo } from "@/components/logo";
+import { PhoneFrame } from "@/components/phone-frame";
 import { business } from "@/lib/demo/business";
 
 // The landing page (DEMO-STANDARD.md, "What they get"). It sells the idea by
@@ -70,7 +71,7 @@ export default function LandingPage() {
             <ol className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {steps.map((s, i) => (
                 <li key={s.title} className="flex flex-col gap-2">
-                  <span className={`flex size-9 items-center justify-center rounded-full font-display text-label ${i === 0 ? "bg-tile text-white" : "bg-answered-soft text-answered"}`}>
+                  <span className={`flex size-9 items-center justify-center rounded-box font-display text-label tabular-nums ${i === 0 ? "bg-tile text-white" : "bg-answered-soft text-answered"}`}>
                     {i + 1}
                   </span>
                   <h3 className="font-display text-title">{s.title}</h3>
@@ -88,8 +89,8 @@ export default function LandingPage() {
           <p className="mt-2 max-w-[56ch] text-body text-ink-muted">Each business is different. Use one, or a different one for different callers.</p>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {channelCards.map((c) => (
-              <div key={c.title} className="rounded-2xl border border-line bg-surface p-5">
-                <span className="flex size-10 items-center justify-center rounded-xl bg-sunk text-ink">{c.icon}</span>
+              <div key={c.title} className="rounded-box border border-line bg-surface p-5">
+                <span className="flex size-10 items-center justify-center rounded-box bg-sunk text-ink">{c.icon}</span>
                 <h3 className="mt-4 font-display text-title">{c.title}</h3>
                 <p className="mt-1 text-body text-ink-muted">{c.body}</p>
               </div>
@@ -146,23 +147,24 @@ export default function LandingPage() {
 
 /** A still picture of the flow, drawn in the page's own parts. Decorative. */
 function HeroPreview() {
+  const bubbleIn = "max-w-[85%] self-start rounded-bubble rounded-bl-tag bg-bubble-out px-3.5 py-2.5 text-label font-normal text-white";
   return (
-    <div aria-hidden className="relative mx-auto w-full max-w-[24rem]">
-      <div className="rounded-[2.5rem] bg-night p-2.5 shadow-[0_24px_60px_-20px_rgb(21_33_44/0.45)]">
-        <div className="flex flex-col gap-3 rounded-[2rem] bg-night px-4 pt-5 pb-28 text-on-night">
-          <p className="flex items-center gap-2 text-micro font-semibold text-tile-on-night">
+    <div aria-hidden className="relative mx-auto w-full max-w-[24rem] pb-6">
+      <PhoneFrame widthClass="w-[16.5rem] sm:w-[18rem]">
+        <div className="flex flex-col items-center gap-1 border-b border-night-line px-4 pt-1 pb-2.5 text-center">
+          <span className="flex size-10 items-center justify-center rounded-full bg-night-raised font-display text-label">K</span>
+          <p className="text-label">{business.name}</p>
+        </div>
+        <div className="flex flex-col gap-2 px-3.5 py-3">
+          <p className="flex items-center justify-center gap-2 py-1 text-micro font-semibold text-tile-on-night">
             <PhoneMissedIcon width={16} height={16} /> Missed call · {business.name}
           </p>
-          <p className="max-w-[85%] rounded-2xl rounded-bl-md bg-bubble-out px-3.5 py-2.5 text-label font-normal text-white">
-            Hi Dana, this is {business.name}. Sorry we missed your call. What&apos;s going on with your roof?
-          </p>
-          <p className="self-end rounded-2xl rounded-br-md bg-night-raised px-3.5 py-2.5 text-label font-normal">Leak after the storm</p>
-          <p className="max-w-[85%] rounded-2xl rounded-bl-md bg-bubble-out px-3.5 py-2.5 text-label font-normal text-white">
-            Got it. What part of town is the house in?
-          </p>
+          <p className={bubbleIn}>Hi Dana, this is {business.name}. Sorry we missed your call. What&apos;s going on with your roof?</p>
+          <p className="self-end rounded-bubble rounded-br-tag bg-night-raised px-3.5 py-2.5 text-label font-normal">Leak after the storm</p>
+          <p className={bubbleIn}>Got it. What part of town is the house in?</p>
         </div>
-      </div>
-      <div className="absolute inset-x-6 bottom-6 rounded-2xl border border-line bg-surface p-4 text-ink shadow-lg">
+      </PhoneFrame>
+      <div className="absolute inset-x-0 bottom-0 rounded-box border border-line bg-surface p-4 text-ink sm:inset-x-2">
         <p className="flex items-center gap-2 text-label">
           <BellIcon width={16} height={16} className="text-tile" /> New lead: Leak after the storm
         </p>
@@ -179,12 +181,12 @@ function OwnerPreview() {
     { label: "Quote sent", cards: [["Omar H.", "Quote for a new roof", "Plantation", false]] },
   ] as const;
   return (
-    <div aria-hidden className="grid grid-cols-3 gap-2 rounded-2xl bg-sunk p-2 sm:gap-3 sm:p-3">
+    <div aria-hidden className="grid grid-cols-3 gap-2 rounded-box border border-line bg-sunk p-2 sm:gap-3 sm:p-3">
       {cols.map((c) => (
         <div key={c.label} className="flex min-w-0 flex-col gap-2">
           <p className="px-1 text-micro font-semibold">{c.label}</p>
           {c.cards.map(([name, issue, area, mine]) => (
-            <div key={name} className={`min-w-0 rounded-xl border bg-surface p-2.5 ${mine ? "border-answered" : "border-line"}`}>
+            <div key={name} className={`min-w-0 rounded-box border bg-surface p-2.5 ${mine ? "border-answered" : "border-line"}`}>
               <p className="truncate text-micro font-semibold">{name}</p>
               <p className="text-micro">{issue}</p>
               <p className="mt-1 flex items-center gap-1 truncate text-micro text-ink-muted">

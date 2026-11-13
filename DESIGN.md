@@ -17,6 +17,11 @@ colors:
   night-raised: "#223242"
   on-night: "#F6F3EC"
   on-night-muted: "#A9B6C2"
+  device: "#0A1117"
+rounded:
+  tag: "3px"
+  box: "6px"
+  bubble: "14px"
 typography:
   display: { fontFamily: "Bricolage Grotesque", fontSize: "2.75rem (4rem from 1024px)", fontWeight: 700, lineHeight: 1.02 }
   headline: { fontFamily: "Bricolage Grotesque", fontSize: "1.875rem", fontWeight: 700, lineHeight: 1.12 }
@@ -48,9 +53,28 @@ Bricolage Grotesque for display, headline and title. Schibsted Grotesk for every
 ## Layout
 
 - Landing page: one column up to 1024px, a max width of 72rem. 16px side gutter on phones.
-- Demo: from 1024px, the phone (fixed 22rem wide) on the left and the owner's office on the right. Below 1024px, two tabs, "Caller's phone" and "Owner's office"; the owner tab shows a red dot when an alert arrives.
+- Demo: from 1024px, the phone (up to 22rem wide, see Phone) on the left and the owner's office on the right. Below 1024px, two tabs, "Caller's phone" and "Owner's office"; the owner tab shows a red dot when an alert arrives.
 - The pipeline board: 4 columns from 1280px, 2 columns from 640px, 1 column below.
 - Touch targets are at least 44px.
+
+## Shape
+
+Assigned 2026-11-13 (tekguyz/missed-call-follow-up#12) so this demo does not share the pill-and-soft-card look of the others (`claude-config/LOOKS.md`). Radius tokens in `app/globals.css`; Tailwind's own radii are off.
+
+- **Buttons:** 6px corners (`rounded-box`), filled and solid. The main action is tile red; the rest fill with `sunk` on paper or `night-raised` in the phone. No pill buttons, no outlined-only buttons.
+- **Cards and panels:** 6px corners, a 1px `line` border, no shadow.
+- **Tags** (urgency, channel, counts, the step bar): 3px corners (`rounded-tag`).
+- **Round stays round** only for small dots, avatars, the radio mark, and the phone's own call buttons (ringing, answer), because that is what a phone's call button is.
+- **Controls:** no browser-default control ships. The channel picker draws its own radio mark; the real input stays for keyboard and screen readers.
+
+## Phone
+
+`components/phone-frame.tsx`, used by the demo and the landing page hero. Built to `LOOKS.md`, "Phone and browser frames".
+
+- 9:19.5, device corners, a near-black `device` bezel with a 1px `night-line` rim and side keys, a status bar (7:42, the island, signal, wifi, battery) and a home bar. Sizes are container units, so it keeps its proportions at any width.
+- Inside, each screen has a messages header: a back arrow, the Keywind avatar and name for a text, the inbox line for an email, the call header for a voice callback.
+- In the demo it is up to 22rem wide and as tall as the window allows below the page header, so the whole phone shows at 1440 x 900. The thread scrolls inside, with a thin night scrollbar.
+- Message bubbles are the one softer corner (14px, with a 3px tail corner), because the phone is a phone.
 
 ## Logo
 

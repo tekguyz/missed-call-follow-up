@@ -16,9 +16,9 @@
 | Row | |
 |---|---|
 | Phase | Live |
-| Shipped | Landing page and one-click demo on Vercel, showcase pictures |
+| Shipped | Landing page and one-click demo on Vercel, showcase pictures. Own shape (6px corners, filled buttons) and a drawn phone frame (#12) |
 | Next | Nothing open. New work goes in an issue. |
-| Updated | 2026-11-10 |
+| Updated | 2026-11-13 |
 
 ## Screenshots
 

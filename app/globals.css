@@ -24,6 +24,7 @@
   --color-bubble-out: #2c7355;
   --color-tile-on-night: #e9b4a5;
   --color-answered-on-night: #9fd3b9;
+  --color-device: #0a1117;
   --color-white: #ffffff;
   --color-transparent: transparent;
 
@@ -46,6 +47,13 @@
   --text-micro: 0.75rem;
   --text-micro--line-height: 1.35;
 
+  /* Shape (DESIGN.md, Shape): 6px on buttons and cards, 3px on tags,
+     a softer corner only on the message bubbles inside the drawn phone. */
+  --radius-*: initial;
+  --radius-tag: 3px;
+  --radius-box: 6px;
+  --radius-bubble: 14px;
+
   --ease-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
@@ -64,6 +72,18 @@ html {
 body {
   font-family: var(--font-sans);
   background: var(--color-paper);
+}
+
+::selection {
+  background: var(--color-tile-soft);
+  color: var(--color-ink);
+}
+
+/* The drawn phone's own scroll, thin and in night colors. */
+.phone-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-night-line) transparent;
+  overscroll-behavior: contain;
 }
 
 :focus-visible {
