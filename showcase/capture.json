@@ -1,13 +1,19 @@
 {
   "app": "missed-call-follow-up",
-  "takenAt": "2026-11-13T08:31:41.735Z",
+  "takenAt": "2026-11-13T22:07:17.266Z",
   "pictures": [
     "landing-desktop-light",
     "follow-up-desktop-light",
     "lead-in-desktop-light",
     "landing-phone-light",
     "follow-up-phone-light",
+    "landing-feed-light",
     "follow-up-feed-light",
-    "landing-feed-light"
+    "lead-in-feed-light",
+    "landing-stories-light",
+    "follow-up-stories-light",
+    "landing-phone-card-light",
+    "follow-up-phone-card-light",
+    "lead-in-phone-card-light"
   ]
 }

@@ -96,6 +96,15 @@
       ]
     },
     {
+      "name": "landing",
+      "device": "feed",
+      "steps": [
+        {
+          "goto": "https://missed-call-follow-up.vercel.app/"
+        }
+      ]
+    },
+    {
       "name": "follow-up",
       "device": "feed",
       "steps": [
@@ -119,15 +128,134 @@
         },
         {
           "wait": 1500
+        },
+        {
+          "scrollTo": "Caller's phone",
+          "offset": 12
+        }
+      ]
+    },
+    {
+      "name": "lead-in",
+      "device": "feed",
+      "steps": [
+        {
+          "click": "Today, it's urgent"
+        },
+        {
+          "wait": 2500
+        },
+        {
+          "click": "See it in Marisol's office"
+        },
+        {
+          "wait": 1500
+        },
+        {
+          "scrollTo": "Caller's phone",
+          "offset": 12
         }
       ]
     },
     {
       "name": "landing",
-      "device": "feed",
+      "device": "stories",
       "steps": [
         {
           "goto": "https://missed-call-follow-up.vercel.app/"
+        }
+      ]
+    },
+    {
+      "name": "follow-up",
+      "device": "stories",
+      "steps": [
+        {
+          "goto": "https://missed-call-follow-up.vercel.app/demo"
+        },
+        {
+          "click": "Call Keywind Roofing"
+        },
+        {
+          "wait": 6500
+        },
+        {
+          "click": "Leak after the storm"
+        },
+        {
+          "wait": 1500
+        },
+        {
+          "click": "Coral Springs"
+        },
+        {
+          "wait": 1500
+        },
+        {
+          "scrollTo": "Caller's phone",
+          "offset": 12
+        }
+      ]
+    },
+    {
+      "name": "landing",
+      "device": "phone-card",
+      "steps": [
+        {
+          "goto": "https://missed-call-follow-up.vercel.app/"
+        }
+      ]
+    },
+    {
+      "name": "follow-up",
+      "device": "phone-card",
+      "steps": [
+        {
+          "goto": "https://missed-call-follow-up.vercel.app/demo"
+        },
+        {
+          "click": "Call Keywind Roofing"
+        },
+        {
+          "wait": 6500
+        },
+        {
+          "click": "Leak after the storm"
+        },
+        {
+          "wait": 1500
+        },
+        {
+          "click": "Coral Springs"
+        },
+        {
+          "wait": 1500
+        },
+        {
+          "scrollTo": "Caller's phone",
+          "offset": 12
+        }
+      ]
+    },
+    {
+      "name": "lead-in",
+      "device": "phone-card",
+      "steps": [
+        {
+          "click": "Today, it's urgent"
+        },
+        {
+          "wait": 2500
+        },
+        {
+          "click": "See it in Marisol's office"
+        },
+        {
+          "wait": 1500
+        },
+        {
+          "scrollTo": "Caller's phone",
+          "offset": 12
         }
       ]
     }
