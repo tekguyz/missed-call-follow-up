@@ -41,10 +41,6 @@ A missed call happens in the evening, when the owner is off the roof. So the cal
 3. Everything else is ink on paper. No gradients on the page, no other accent colors.
 4. Light theme only. The phone is dark because it is a phone at night, not a dark mode.
 
-## Shape
-
-Decided 2026-11-13 (founder, tekguyz/missed-call-follow-up#6): the charcoal and square-corner restyle was tried and dropped; it was too dark and the square phone looked odd. Pill buttons were also too round. So: buttons, tabs and panels use 8px corners (`rounded-lg`), chips and small cards 6px (`rounded-md`), the phone frame and chat bubbles stay softly rounded because it is a phone, and dots and call circles stay round. No pills, no large 2xl cards.
-
 ## Type
 
 Bricolage Grotesque for display, headline and title. Schibsted Grotesk for everything else. Six sizes only, as tokens: `text-display`, `text-headline`, `text-title`, `text-body`, `text-label`, `text-micro`. Tailwind's own sizes are off.
