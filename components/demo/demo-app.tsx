@@ -118,14 +118,14 @@ export function DemoApp() {
             <li
               key={label}
               aria-current={i === step ? "step" : undefined}
-              className={`rounded-none px-3 py-1.5 font-semibold ${i < step ? "bg-answered-soft text-answered" : i === step ? "bg-ink text-paper" : "bg-sunk text-ink-muted"}`}
+              className={`rounded-full px-3 py-1.5 font-semibold ${i < step ? "bg-answered-soft text-answered" : i === step ? "bg-ink text-paper" : "bg-sunk text-ink-muted"}`}
             >
               {i + 1}. {label}
             </li>
           ))}
         </ol>
 
-        <div role="tablist" aria-label="Demo view" className="mt-5 grid grid-cols-2 gap-1 rounded-none bg-sunk p-1 lg:hidden">
+        <div role="tablist" aria-label="Demo view" className="mt-5 grid grid-cols-2 gap-1 rounded-full bg-sunk p-1 lg:hidden">
           {(
             [
               ["phone", "Caller's phone"],
@@ -140,11 +140,11 @@ export function DemoApp() {
               aria-selected={tab === id}
               aria-controls={`panel-${id}`}
               onClick={() => showTab(id)}
-              className={`relative min-h-11 rounded-none text-label ${tab === id ? "bg-surface text-ink" : "text-ink-muted"}`}
+              className={`relative min-h-11 rounded-full text-label ${tab === id ? "bg-surface text-ink shadow-sm" : "text-ink-muted"}`}
             >
               {label}
               {id === "office" && unseen && tab !== "office" && (
-                <span className="absolute top-2.5 right-4 size-2.5 rounded-none bg-tile" aria-label="New alert" />
+                <span className="absolute top-2.5 right-4 size-2.5 rounded-full bg-tile" aria-label="New alert" />
               )}
             </button>
           ))}

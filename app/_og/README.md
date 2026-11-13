@@ -4,6 +4,6 @@
 
 | File | Font | Source |
 |---|---|---|
-| `barlow-condensed-700.woff` | Barlow Condensed Bold | npm `@fontsource/barlow-condensed`, `files/barlow-condensed-latin-700-normal.woff` |
-| `plex-400.woff` | IBM Plex Sans Regular | npm `@fontsource/ibm-plex-sans`, `files/ibm-plex-sans-latin-400-normal.woff` |
-| `plex-600.woff` | IBM Plex Sans SemiBold | npm `@fontsource/ibm-plex-sans`, `files/ibm-plex-sans-latin-600-normal.woff` |
+| `bricolage-700.woff` | Bricolage Grotesque Bold | npm `@fontsource/bricolage-grotesque`, `files/bricolage-grotesque-latin-700-normal.woff` |
+| `schibsted-400.woff` | Schibsted Grotesk Regular | npm `@fontsource/schibsted-grotesk`, `files/schibsted-grotesk-latin-400-normal.woff` |
+| `schibsted-600.woff` | Schibsted Grotesk SemiBold | npm `@fontsource/schibsted-grotesk`, `files/schibsted-grotesk-latin-600-normal.woff` |

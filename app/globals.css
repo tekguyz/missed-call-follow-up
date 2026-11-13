@@ -5,42 +5,40 @@
 
 @theme {
   --color-*: initial;
-  --color-paper: #1d2125;
-  --color-surface: #272c31;
-  --color-sunk: #16191c;
-  --color-line: #444c54;
-  --color-ink: #f2efe9;
-  --color-ink-muted: #b4b9be;
-  --color-tile: #ff6a13;
-  --color-tile-deep: #ff8236;
-  --color-tile-soft: #3b2616;
-  --color-tile-text: #ff9a5c;
-  --color-on-tile: #1d2125;
-  --color-answered: #5fc08a;
-  --color-answered-soft: #1f3a2b;
-  --color-night: #101315;
-  --color-night-raised: #20262b;
-  --color-night-line: #3a424a;
-  --color-on-night: #f2efe9;
-  --color-on-night-muted: #b0b6bc;
+  --color-paper: #f6f3ec;
+  --color-surface: #ffffff;
+  --color-sunk: #eeeae0;
+  --color-line: #ddd7cb;
+  --color-ink: #15212c;
+  --color-ink-muted: #56626d;
+  --color-tile: #b9472a;
+  --color-tile-deep: #963a22;
+  --color-tile-soft: #f6e3dc;
+  --color-answered: #2c7355;
+  --color-answered-soft: #e2efe8;
+  --color-night: #15212c;
+  --color-night-raised: #223242;
+  --color-night-line: #34475a;
+  --color-on-night: #f6f3ec;
+  --color-on-night-muted: #a9b6c2;
   --color-bubble-out: #2c7355;
-  --color-tile-on-night: #ff9a5c;
-  --color-answered-on-night: #7fd4a4;
+  --color-tile-on-night: #e9b4a5;
+  --color-answered-on-night: #9fd3b9;
   --color-white: #ffffff;
   --color-transparent: transparent;
 
-  --font-display: var(--font-barlow), "Arial Narrow", sans-serif;
-  --font-sans: var(--font-plex), system-ui, sans-serif;
+  --font-display: var(--font-bricolage), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-schibsted), system-ui, sans-serif;
 
   --text-*: initial;
-  --text-display: 3.25rem;
-  --text-display--line-height: 1;
-  --text-display--letter-spacing: 0.005em;
-  --text-headline: 2.25rem;
-  --text-headline--line-height: 1.08;
-  --text-headline--letter-spacing: 0.005em;
-  --text-title: 1.5rem;
-  --text-title--line-height: 1.2;
+  --text-display: 2.75rem;
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.02em;
+  --text-headline: 1.875rem;
+  --text-headline--line-height: 1.12;
+  --text-headline--letter-spacing: -0.01em;
+  --text-title: 1.25rem;
+  --text-title--line-height: 1.3;
   --text-body: 1rem;
   --text-body--line-height: 1.55;
   --text-label: 0.875rem;
@@ -53,22 +51,14 @@
 
 @media (min-width: 64rem) {
   :root {
-    --text-display: 5rem;
+    --text-display: 4rem;
   }
 }
 
 html {
-  color-scheme: dark;
   background: var(--color-paper);
   color: var(--color-ink);
   -webkit-text-size-adjust: 100%;
-}
-
-h1,
-h2,
-h3 {
-  font-weight: 700;
-  text-wrap: balance;
 }
 
 body {
@@ -97,8 +87,8 @@ body {
 }
 
 @keyframes ring-pulse {
-  0% { box-shadow: 0 0 0 0 rgb(255 106 19 / 0.55); }
-  100% { box-shadow: 0 0 0 22px rgb(255 106 19 / 0); }
+  0% { box-shadow: 0 0 0 0 rgb(185 71 42 / 0.55); }
+  100% { box-shadow: 0 0 0 22px rgb(185 71 42 / 0); }
 }
 
 @keyframes arrive {

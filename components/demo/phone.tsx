@@ -32,11 +32,11 @@ type Props = {
 
 export function Phone(props: Props) {
   return (
-    <div className="mx-auto w-full max-w-[22rem] rounded-sm border-2 border-line bg-night p-2.5">
-      <div className="flex h-[min(38rem,calc(100dvh-2.5rem))] min-h-[30rem] flex-col overflow-hidden rounded-none bg-night text-on-night">
+    <div className="mx-auto w-full max-w-[22rem] rounded-[2.75rem] bg-night p-2.5 shadow-[0_24px_60px_-20px_rgb(21_33_44/0.45)]">
+      <div className="flex h-[min(38rem,calc(100dvh-2.5rem))] min-h-[30rem] flex-col overflow-hidden rounded-[2.25rem] bg-night text-on-night">
         <div className="flex items-center justify-between px-6 pt-3 pb-1 text-micro text-on-night-muted" aria-hidden>
           <span className="font-semibold">7:42</span>
-          <span className="h-5 w-20 rounded-none bg-night-raised" />
+          <span className="h-5 w-20 rounded-full bg-night-raised" />
           <span>After hours</span>
         </div>
         <Screen {...props} />
@@ -66,7 +66,7 @@ function Setup({ channel, callerName, onChannel, onCall }: Props) {
         {channels.map((c) => (
           <label
             key={c.id}
-            className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-none border px-4 py-2.5 transition-colors ${
+            className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-2xl border px-4 py-2.5 transition-colors ${
               channel === c.id ? "border-on-night bg-night-raised" : "border-night-line hover:bg-night-raised"
             }`}
           >
@@ -82,7 +82,7 @@ function Setup({ channel, callerName, onChannel, onCall }: Props) {
       <button
         type="button"
         onClick={onCall}
-        className="mt-auto inline-flex min-h-14 items-center justify-center gap-2 rounded-none bg-tile font-display text-title text-on-tile transition-colors hover:bg-tile-deep"
+        className="mt-auto inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-tile text-label text-white transition-colors hover:bg-tile-deep"
       >
         <PhoneIcon /> Call {business.name}
       </button>
@@ -93,7 +93,7 @@ function Setup({ channel, callerName, onChannel, onCall }: Props) {
 function Calling() {
   return (
     <div className="flex flex-1 flex-col items-center justify-center gap-6 px-6 text-center" role="status">
-      <span className="ring-pulse flex size-24 items-center justify-center rounded-none bg-tile text-on-tile">
+      <span className="ring-pulse flex size-24 items-center justify-center rounded-full bg-tile text-white">
         <PhoneIcon width={36} height={36} />
       </span>
       <div>
@@ -107,7 +107,7 @@ function Calling() {
 function NoAnswer() {
   return (
     <div className="arrive flex flex-1 flex-col items-center justify-center gap-4 px-6 text-center" role="status">
-      <span className="flex size-20 items-center justify-center rounded-none bg-night-raised text-tile-on-night">
+      <span className="flex size-20 items-center justify-center rounded-full bg-night-raised text-tile-on-night">
         <PhoneMissedIcon width={32} height={32} />
       </span>
       <p className="font-display text-title">No answer</p>
@@ -124,7 +124,7 @@ function IncomingCallback({ onAnswer }: { onAnswer: () => void }) {
         <p className="mt-2 font-display text-headline">{business.name}</p>
         <p className="mt-1 text-label font-normal text-on-night-muted">Calling you back</p>
       </div>
-      <button type="button" onClick={onAnswer} className="ring-pulse flex size-20 items-center justify-center rounded-none bg-bubble-out text-white" aria-label="Answer the callback">
+      <button type="button" onClick={onAnswer} className="ring-pulse flex size-20 items-center justify-center rounded-full bg-answered text-white" aria-label="Answer the callback">
         <PhoneIcon width={32} height={32} />
       </button>
     </div>
@@ -170,7 +170,7 @@ function FollowUp({ run, shown, onReply, onAgain, onSeeOffice }: Props & { run: 
                   key={o.id}
                   type="button"
                   onClick={() => onReply(o.id)}
-                  className="min-h-11 rounded-none border border-on-night-muted px-4 text-label text-on-night transition-colors hover:bg-night-raised"
+                  className="min-h-11 rounded-full border border-on-night-muted px-4 text-label text-on-night transition-colors hover:bg-night-raised"
                 >
                   {o.label}
                 </button>
@@ -181,10 +181,10 @@ function FollowUp({ run, shown, onReply, onAgain, onSeeOffice }: Props & { run: 
         {finished && (
           <div className="arrive flex flex-col gap-2">
             <p className="text-label text-answered-on-night">The lead is in {business.shortName}&apos;s pipeline.</p>
-            <button type="button" onClick={onSeeOffice} className="min-h-11 rounded-none bg-on-night text-label text-night lg:hidden">
+            <button type="button" onClick={onSeeOffice} className="min-h-11 rounded-full bg-on-night text-label text-ink lg:hidden">
               See it in {business.owner}&apos;s office
             </button>
-            <button type="button" onClick={onAgain} className="min-h-11 rounded-none border border-on-night-muted text-label text-on-night hover:bg-night-raised">
+            <button type="button" onClick={onAgain} className="min-h-11 rounded-full border border-on-night-muted text-label text-on-night hover:bg-night-raised">
               Call again as someone else
             </button>
           </div>
@@ -207,7 +207,7 @@ function FollowUpHeader({ channel }: { channel: Channel }) {
   if (channel === "voice") {
     return (
       <div className="flex items-center gap-3 border-b border-night-line px-4 py-3">
-        <span className="flex size-9 items-center justify-center rounded-none bg-bubble-out text-white">
+        <span className="flex size-9 items-center justify-center rounded-full bg-answered text-white">
           <PhoneIcon width={16} height={16} />
         </span>
         <div>
@@ -219,7 +219,7 @@ function FollowUpHeader({ channel }: { channel: Channel }) {
   }
   return (
     <div className="flex items-center gap-3 border-b border-night-line px-4 py-3">
-      <span className="flex size-9 items-center justify-center rounded-none bg-night-raised font-display text-label">K</span>
+      <span className="flex size-9 items-center justify-center rounded-full bg-night-raised font-display text-label">K</span>
       <div>
         <p className="text-label">{business.name}</p>
         <p className="text-micro text-on-night-muted">Text message</p>
@@ -232,7 +232,7 @@ function Bubble({ turn, channel }: { turn: Turn; channel: Channel }) {
   const mine = turn.from === "caller";
   if (channel === "email") {
     return (
-      <div className={`arrive rounded-none px-3.5 py-3 text-label font-normal ${mine ? "ml-6 bg-night-raised" : "bg-surface text-ink"}`}>
+      <div className={`arrive rounded-xl px-3.5 py-3 text-label font-normal ${mine ? "ml-6 bg-night-raised" : "bg-paper text-ink"}`}>
         <p className={`mb-1 text-micro font-semibold ${mine ? "text-on-night-muted" : "text-ink-muted"}`}>{mine ? "You" : business.name}</p>
         {turn.text}
       </div>
@@ -250,8 +250,8 @@ function Bubble({ turn, channel }: { turn: Turn; channel: Channel }) {
   }
   return (
     <p
-      className={`arrive max-w-[85%] rounded-none px-3.5 py-2.5 text-label font-normal ${
-        mine ? "self-end bg-night-raised" : "self-start bg-bubble-out text-white"
+      className={`arrive max-w-[85%] rounded-2xl px-3.5 py-2.5 text-label font-normal ${
+        mine ? "self-end rounded-br-md bg-night-raised" : "self-start rounded-bl-md bg-bubble-out text-white"
       }`}
     >
       {turn.text}
