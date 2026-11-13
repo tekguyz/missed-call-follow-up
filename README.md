@@ -1,10 +1,10 @@
 <p align="center"><img src="docs/banner.svg" alt="Missed Call Follow-Up" width="100%"></p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/status-live-b9472a?labelColor=f6f3ec" alt="Status: live">
-  <img src="https://img.shields.io/badge/Next.js-16-15212c?labelColor=f6f3ec" alt="Next.js 16">
-  <img src="https://img.shields.io/badge/backend-none-b9472a?labelColor=f6f3ec" alt="No backend">
-  <img src="https://img.shields.io/badge/tests-Vitest-2c7355?labelColor=f6f3ec" alt="Tests: Vitest">
+  <img src="https://img.shields.io/badge/status-live-ff6a13?labelColor=1d2125" alt="Status: live">
+  <img src="https://img.shields.io/badge/Next.js-16-3d444b?labelColor=1d2125" alt="Next.js 16">
+  <img src="https://img.shields.io/badge/backend-none-ff6a13?labelColor=1d2125" alt="No backend">
+  <img src="https://img.shields.io/badge/tests-Vitest-2c7355?labelColor=1d2125" alt="Tests: Vitest">
 </p>
 
 **Every missed call gets an answer: a landing page and a one-click demo of a missed-call follow-up for trade businesses.**
