@@ -25,4 +25,5 @@ export const MailIcon = (p: P) => (<svg {...base} {...p}><rect x="2" y="4" width
 export const BellIcon = (p: P) => (<svg {...base} {...p}><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /></svg>);
 export const ArrowRightIcon = (p: P) => (<svg {...base} {...p}><path d="M5 12h14M12 5l7 7-7 7" /></svg>);
 export const CheckIcon = (p: P) => (<svg {...base} {...p}><path d="M20 6 9 17l-5-5" /></svg>);
+export const ChevronLeftIcon = (p: P) => (<svg {...base} {...p}><path d="m15 18-6-6 6-6" /></svg>);
 export const PinIcon = (p: P) => (<svg {...base} {...p}><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>);
