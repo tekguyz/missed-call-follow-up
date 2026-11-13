@@ -66,7 +66,7 @@ function Setup({ channel, callerName, onChannel, onCall }: Props) {
         {channels.map((c) => (
           <label
             key={c.id}
-            className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-2xl border px-4 py-2.5 transition-colors ${
+            className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-lg border px-4 py-2.5 transition-colors ${
               channel === c.id ? "border-on-night bg-night-raised" : "border-night-line hover:bg-night-raised"
             }`}
           >
@@ -82,7 +82,7 @@ function Setup({ channel, callerName, onChannel, onCall }: Props) {
       <button
         type="button"
         onClick={onCall}
-        className="mt-auto inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-tile text-label text-white transition-colors hover:bg-tile-deep"
+        className="mt-auto inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-tile text-label text-white transition-colors hover:bg-tile-deep"
       >
         <PhoneIcon /> Call {business.name}
       </button>
@@ -170,7 +170,7 @@ function FollowUp({ run, shown, onReply, onAgain, onSeeOffice }: Props & { run: 
                   key={o.id}
                   type="button"
                   onClick={() => onReply(o.id)}
-                  className="min-h-11 rounded-full border border-on-night-muted px-4 text-label text-on-night transition-colors hover:bg-night-raised"
+                  className="min-h-11 rounded-lg border border-on-night-muted px-4 text-label text-on-night transition-colors hover:bg-night-raised"
                 >
                   {o.label}
                 </button>
@@ -181,10 +181,10 @@ function FollowUp({ run, shown, onReply, onAgain, onSeeOffice }: Props & { run: 
         {finished && (
           <div className="arrive flex flex-col gap-2">
             <p className="text-label text-answered-on-night">The lead is in {business.shortName}&apos;s pipeline.</p>
-            <button type="button" onClick={onSeeOffice} className="min-h-11 rounded-full bg-on-night text-label text-ink lg:hidden">
+            <button type="button" onClick={onSeeOffice} className="min-h-11 rounded-lg bg-on-night text-label text-ink lg:hidden">
               See it in {business.owner}&apos;s office
             </button>
-            <button type="button" onClick={onAgain} className="min-h-11 rounded-full border border-on-night-muted text-label text-on-night hover:bg-night-raised">
+            <button type="button" onClick={onAgain} className="min-h-11 rounded-lg border border-on-night-muted text-label text-on-night hover:bg-night-raised">
               Call again as someone else
             </button>
           </div>
@@ -232,7 +232,7 @@ function Bubble({ turn, channel }: { turn: Turn; channel: Channel }) {
   const mine = turn.from === "caller";
   if (channel === "email") {
     return (
-      <div className={`arrive rounded-xl px-3.5 py-3 text-label font-normal ${mine ? "ml-6 bg-night-raised" : "bg-paper text-ink"}`}>
+      <div className={`arrive rounded-md px-3.5 py-3 text-label font-normal ${mine ? "ml-6 bg-night-raised" : "bg-paper text-ink"}`}>
         <p className={`mb-1 text-micro font-semibold ${mine ? "text-on-night-muted" : "text-ink-muted"}`}>{mine ? "You" : business.name}</p>
         {turn.text}
       </div>
