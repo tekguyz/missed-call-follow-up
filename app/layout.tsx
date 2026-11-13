@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Schibsted_Grotesk } from "next/font/google";
+import { Barlow_Condensed, IBM_Plex_Sans } from "next/font/google";
 import { siteDescription, siteName, siteTagline, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 // Fonts and colors follow DESIGN.md.
-const bricolage = Bricolage_Grotesque({ subsets: ["latin"], weight: "700", variable: "--font-bricolage" });
-const schibsted = Schibsted_Grotesk({ subsets: ["latin"], variable: "--font-schibsted" });
+const barlow = Barlow_Condensed({ subsets: ["latin"], weight: ["600", "700"], variable: "--font-barlow" });
+const plex = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "600"], variable: "--font-plex" });
 
 // The link preview: title, description and app/opengraph-image.tsx.
 export const metadata: Metadata = {
@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: `${siteName} · ${siteTagline}`, description: siteDescription },
 };
 
-export const viewport: Viewport = { themeColor: "#f6f3ec" };
+export const viewport: Viewport = { themeColor: "#1d2125" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${bricolage.variable} ${schibsted.variable} h-full antialiased`}>
+    <html lang="en" className={`${barlow.variable} ${plex.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col text-body text-ink">{children}</body>
     </html>
   );

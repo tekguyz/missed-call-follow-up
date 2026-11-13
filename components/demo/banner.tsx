@@ -19,7 +19,7 @@ export function DemoBanner({ onReset }: { onReset: () => void }) {
   }
 
   return (
-    <aside aria-label="Demo" data-demo-banner className="border-b border-line bg-sunk">
+    <aside aria-label="Demo" data-demo-banner className="border-b-2 border-line bg-sunk">
       <div className="mx-auto flex max-w-[90rem] flex-wrap items-center justify-between gap-x-6 px-4 text-label text-ink-muted sm:px-6">
         <p className="py-2" role="status">
           {done ? "Back to the sample pipeline." : "You are in the demo. Nothing is sent, and changes stay in this browser."}
