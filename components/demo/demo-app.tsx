@@ -6,7 +6,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { business } from "@/lib/demo/business";
-import { answer, miss, newRun, openFollowUp, ring } from "@/lib/demo/conversation";
+import {
+  answer,
+  miss,
+  newRun,
+  openFollowUp,
+  ring,
+} from "@/lib/demo/conversation";
 import { callerNames } from "@/lib/demo/script";
 import type { Channel, Run } from "@/lib/demo/types";
 import { demoStore, useDemoState } from "@/lib/demo/use-demo";
@@ -37,7 +43,8 @@ export function DemoApp() {
   const [unseen, setUnseen] = useState(false);
   const leadSaved = useRef<Run | null>(null);
 
-  const callerName = run?.callerName ?? callerNames[state.calls % callerNames.length];
+  const callerName =
+    run?.callerName ?? callerNames[state.calls % callerNames.length];
 
   // Ringing → missed. The owner hears about the missed call at once.
   useEffect(() => {
@@ -65,13 +72,21 @@ export function DemoApp() {
   useEffect(() => {
     if (!run || shown >= run.transcript.length) return;
     const next = run.transcript[shown];
-    const t = setTimeout(() => setShown((n) => n + 1), next.from === "caller" ? 0 : TYPING_MS);
+    const t = setTimeout(
+      () => setShown((n) => n + 1),
+      next.from === "caller" ? 0 : TYPING_MS,
+    );
     return () => clearTimeout(t);
   }, [run, shown]);
 
   // A finished follow-up becomes a lead, once per call.
   useEffect(() => {
-    if (run?.phase !== "done" || shown < run.transcript.length || leadSaved.current === run) return;
+    if (
+      run?.phase !== "done" ||
+      shown < run.transcript.length ||
+      leadSaved.current === run
+    )
+      return;
     leadSaved.current = run;
     demoStore().addLead(run);
     setUnseen(true);
@@ -105,56 +120,74 @@ export function DemoApp() {
   return (
     <>
       <DemoBanner onReset={reset} />
-      <main id="main" className="mx-auto w-full max-w-[90rem] flex-1 px-4 pt-5 pb-16 sm:px-6">
-        <div className="flex flex-col gap-1">
-          <h1 className="font-display text-headline">A missed call at {business.name}</h1>
-          <p className="max-w-[60ch] text-body text-ink-muted">
-            You play the caller. Call after hours, miss the call, answer the follow-up, and watch the lead land in the owner&apos;s office.
-          </p>
-        </div>
+      <main
+        id="main"
+        className="mx-auto w-full max-w-[90rem] flex-1 px-4 pt-5 pb-16 sm:px-6"
+      >
+        <div className="grid gap-x-10 gap-y-5 lg:grid-cols-[auto_minmax(0,1fr)] lg:items-start">
+          <div className="flex flex-col gap-4 lg:col-start-2 lg:row-start-1">
+            <div className="flex flex-col gap-1">
+              <h1 className="font-display text-headline">
+                A missed call at {business.name}
+              </h1>
+              <p className="max-w-[60ch] text-body text-ink-muted">
+                You play the caller. Call after hours, miss the call, answer the
+                follow-up, and watch the lead land in the owner&apos;s office.
+              </p>
+            </div>
 
-        <ol className="mt-4 flex flex-wrap gap-2 text-micro" aria-label="Where you are">
-          {steps.map((label, i) => (
-            <li
-              key={label}
-              aria-current={i === step ? "step" : undefined}
-              className={`rounded-tag px-2.5 py-1.5 font-semibold ${i < step ? "bg-answered-soft text-answered" : i === step ? "bg-ink text-paper" : "bg-sunk text-ink-muted"}`}
+            <ol
+              className="flex flex-wrap gap-2 text-micro"
+              aria-label="Where you are"
             >
-              {i + 1}. {label}
-            </li>
-          ))}
-        </ol>
+              {steps.map((label, i) => (
+                <li
+                  key={label}
+                  aria-current={i === step ? "step" : undefined}
+                  className={`rounded-tag px-2.5 py-1.5 font-semibold ${i < step ? "bg-answered-soft text-answered" : i === step ? "bg-ink text-paper" : "bg-sunk text-ink-muted"}`}
+                >
+                  {i + 1}. {label}
+                </li>
+              ))}
+            </ol>
+          </div>
 
-        <div role="tablist" aria-label="Demo view" className="mt-5 grid grid-cols-2 gap-1 rounded-box border border-line bg-sunk p-1 lg:hidden">
-          {(
-            [
-              ["phone", "Caller's phone"],
-              ["office", "Owner's office"],
-            ] as const
-          ).map(([id, label]) => (
-            <button
-              key={id}
-              type="button"
-              role="tab"
-              id={`tab-${id}`}
-              aria-selected={tab === id}
-              aria-controls={`panel-${id}`}
-              onClick={() => showTab(id)}
-              className={`relative min-h-11 rounded-tag text-label transition-colors ${tab === id ? "bg-ink text-paper" : "text-ink-muted hover:text-ink"}`}
-            >
-              {label}
-              {id === "office" && unseen && tab !== "office" && (
-                <span className="absolute top-2.5 right-4 size-2.5 rounded-full bg-tile" aria-label="New alert" />
-              )}
-            </button>
-          ))}
-        </div>
+          <div
+            role="tablist"
+            aria-label="Demo view"
+            className="grid grid-cols-2 gap-1 rounded-box border border-line bg-sunk p-1 lg:hidden"
+          >
+            {(
+              [
+                ["phone", "Caller's phone"],
+                ["office", "Owner's office"],
+              ] as const
+            ).map(([id, label]) => (
+              <button
+                key={id}
+                type="button"
+                role="tab"
+                id={`tab-${id}`}
+                aria-selected={tab === id}
+                aria-controls={`panel-${id}`}
+                onClick={() => showTab(id)}
+                className={`relative min-h-11 rounded-tag text-label transition-colors ${tab === id ? "bg-ink text-paper" : "text-ink-muted hover:text-ink"}`}
+              >
+                {label}
+                {id === "office" && unseen && tab !== "office" && (
+                  <span
+                    className="absolute top-2.5 right-4 size-2.5 rounded-full bg-tile"
+                    aria-label="New alert"
+                  />
+                )}
+              </button>
+            ))}
+          </div>
 
-        <div className="mt-5 grid gap-8 lg:grid-cols-[22rem_minmax(0,1fr)] lg:items-start">
           <section
             id="panel-phone"
             aria-label="Caller's phone"
-            className={`${tab === "phone" ? "" : "hidden"} lg:sticky lg:top-4 lg:block`}
+            className={`${tab === "phone" ? "" : "hidden"} lg:sticky lg:top-4 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:block`}
           >
             <Phone
               run={run}
@@ -173,8 +206,15 @@ export function DemoApp() {
               onSeeOffice={() => showTab("office")}
             />
           </section>
-          <section id="panel-office" aria-label="Owner's office" className={`${tab === "office" ? "" : "hidden"} lg:block`}>
-            <Office state={state} onMove={(id, stage) => demoStore().move(id, stage)} />
+          <section
+            id="panel-office"
+            aria-label="Owner's office"
+            className={`${tab === "office" ? "" : "hidden"} lg:col-start-2 lg:row-start-2 lg:block`}
+          >
+            <Office
+              state={state}
+              onMove={(id, stage) => demoStore().move(id, stage)}
+            />
           </section>
         </div>
       </main>

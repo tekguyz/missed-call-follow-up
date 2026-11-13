@@ -14,9 +14,9 @@ export const business = {
 } as const;
 
 export const channels: readonly { id: Channel; label: string; hint: string }[] = [
-  { id: "text", label: "Text", hint: "A text reaches the caller's phone." },
-  { id: "email", label: "Email", hint: "For past customers, whose email is on file." },
-  { id: "voice", label: "Voice callback", hint: "An automated call rings the caller back." },
+  { id: "text", label: "Text", hint: "A text to their phone" },
+  { id: "email", label: "Email", hint: "For past customers" },
+  { id: "voice", label: "Voice callback", hint: "An automated call back" },
 ];
 
 export const stages: readonly { id: Stage; label: string }[] = [

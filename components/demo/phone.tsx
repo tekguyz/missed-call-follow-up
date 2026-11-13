@@ -33,9 +33,9 @@ type Props = {
 
 export function Phone(props: Props) {
   return (
-    // As tall as the window allows below the page header, up to 22rem wide,
+    // As tall as the window allows below the demo banner, up to 24rem wide,
     // so the whole phone shows at 1440 x 900; the thread scrolls inside.
-    <PhoneFrame widthClass="w-[clamp(16rem,calc((100dvh-14.5rem)*0.4615),22rem)]">
+    <PhoneFrame widthClass="w-[clamp(16rem,calc((100dvh-6.5rem)*0.4615),24rem)]">
       <Screen {...props} />
     </PhoneFrame>
   );
@@ -57,12 +57,12 @@ function Setup({ channel, callerName, onChannel, onCall }: Props) {
       <p className="mt-2 text-label font-normal text-on-night-muted">
         It is after hours, so nobody will pick up. First, pick how {business.shortName} follows up.
       </p>
-      <fieldset className="mt-5 flex flex-col gap-2">
+      <fieldset className="my-6 flex min-h-0 flex-1 flex-col gap-3">
         <legend className="sr-only">How {business.name} follows up</legend>
         {channels.map((c) => (
           <label
             key={c.id}
-            className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-box border px-3.5 py-2.5 transition-colors has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-tile ${
+            className={`flex min-h-16 max-h-28 flex-1 cursor-pointer items-center gap-3 rounded-box border px-4 py-3 transition-colors has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-tile ${
               channel === c.id ? "border-on-night-muted bg-night-raised" : "border-night-line hover:bg-night-raised"
             }`}
           >
@@ -81,7 +81,7 @@ function Setup({ channel, callerName, onChannel, onCall }: Props) {
       <button
         type="button"
         onClick={onCall}
-        className="mt-auto inline-flex min-h-13 shrink-0 items-center justify-center gap-2 rounded-box bg-tile text-label text-white transition-colors hover:bg-tile-deep active:bg-tile-deep"
+        className="inline-flex min-h-13 shrink-0 items-center justify-center gap-2 rounded-box bg-tile text-label text-white transition-colors hover:bg-tile-deep active:bg-tile-deep"
       >
         <PhoneIcon /> Call {business.name}
       </button>
